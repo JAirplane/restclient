@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: restclient
+  security:
+    oauth2:
+      client:
+        registration:
+          taco-admin-client:
+            provider: tacocloud
+            client-id: taco-admin-client
+            client-secret: secret
+            authorization-grant-type: client_credentials
+            scope: writeIngredients,deleteIngredients,orders
+        provider:
+          tacocloud:
+            token-uri: http://localhost:9000/oauth2/token
+server:
+  port: 8000
+rest:
+  baseurl: "http://localhost:8080"
+  api-url-part: "/api"
+  ingredients-endpoint: "/ingredients"
+  orders-endpoint: "/orders"
+debug: true
